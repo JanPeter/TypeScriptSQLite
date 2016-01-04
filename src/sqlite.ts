@@ -4,12 +4,12 @@ import sqlite3 = require('sqlite3');
 import fs = require('fs');
 import _ = require('underscore');
 
-export class Sqlite<T> {
+class Sqlite<T> {
   public db: sqlite3.Database;
   private pkg: any;
   private table: string;
   
-  constructor(createCmd: string, public map: (row: any) => T, callback?: (error: any) => void, filePath?: string) {
+  constructor(createCmd: string, public map: (row: any) => T, callback?: (error: Error) => void, filePath?: string) {
     this.pkg = JSON.parse(fs.readFileSync('./package.json', 'UTF-8'));
     if (filePath === undefined) {
       filePath = this.pkg.databasePath;
@@ -81,3 +81,5 @@ export class Sqlite<T> {
     });
   }
 }
+
+export = Sqlite;

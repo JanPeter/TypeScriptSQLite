@@ -10,7 +10,7 @@ var expect = require('chai').expect;
 
 describe('SQLite-Object-Mapper module', function() {
   beforeEach(function(done) {
-    db = new Sqlite.Sqlite('CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT UNIQUE);', function(row) {
+    db = new Sqlite('CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT UNIQUE);', function(row) {
       return { id: row.id, name: row.name };
     }, function(error) {
       done();
