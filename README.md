@@ -20,6 +20,16 @@ TypeScript Module Manager (tsmm):
 
 ### Constructor
 
+You need to provide either the filePath parameter in the constructor or you can use the databasePath key in your package.json like that:
+
+    {
+      "name": "yourpackagename",
+      "databasePath": "yourdatabasefile.db"
+      ...
+    }
+
+Without one of this options, the package will not be able to create your database. If you didn't provide one of this, your callback will get an Error with the message `no databasePath provided`.
+
 **constructor(createCmd: string, map: (row: any) => T, callback?: (error: Error) => void, filePath?: string)**
 
 * `createCommand` string, the create table command (I highly recommend to use CREATE TABLE IF NOT EXISTS...)
@@ -37,7 +47,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       });
@@ -58,7 +68,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {
@@ -93,7 +103,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {
@@ -128,7 +138,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {
@@ -162,7 +172,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {
@@ -196,7 +206,7 @@ TypeScript Module Manager (tsmm):
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {
@@ -236,7 +246,7 @@ You can explicitly close the database connection with this function.
       constructor(public id: number, public name: string) { }
     }
 
-    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id NUMBER PRIMARY KEY, name TEXT NOT NULL)',
+    var database = new Sqlite<User>('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, name TEXT NOT NULL)',
       (row) => {
         return new User(row.id, row.name);
       }, function(error: Error) {

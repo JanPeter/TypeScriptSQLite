@@ -18,14 +18,18 @@ class Sqlite<T> {
     var m: RegExpExecArray;
     var re = /TABLE (IF NOT EXISTS)? ?(\w*)/i;
     if ((m = re.exec(createCmd)) !== null) {
-        if (m.index === re.lastIndex) {
-            re.lastIndex++;
-        }
-        this.table = _.last(m);
+      if (m.index === re.lastIndex) {
+        re.lastIndex++;
+      }
+      this.table = _.last(m);
     }
     
-    this.db = new sqlite3.Database(filePath);
-    this.db.exec(createCmd, callback);
+    if (filePath !== null && filePath !== undefined) {
+      this.db = new sqlite3.Database(filePath);
+      this.db.exec(createCmd, callback);
+    } else {
+      callback(new Error('no databasePath provided'));
+    }
   }
 
   close(callback?: (error: Error) => void) {

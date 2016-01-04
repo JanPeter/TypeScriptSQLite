@@ -1,6 +1,6 @@
 {
   "name": "tssqlite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sqlite3 object relation mapper written in TypeScript",
   "license": "",
   "repository": {
