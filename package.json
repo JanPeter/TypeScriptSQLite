@@ -10,7 +10,6 @@
   "main": "./lib/sqlite.js",
   "author": "Jan Schlacher",
   "keywords": [
-    "trisoft",
     "sqlite",
     "sqlite3",
     "orm",

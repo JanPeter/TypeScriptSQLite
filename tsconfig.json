@@ -12,7 +12,6 @@
     "src/**/*.ts"
   ],
   "files": [
-    "src\\sqlite.ts",
-    "src\\tri.ts"
+    "src\\sqlite.ts"
   ]
 }

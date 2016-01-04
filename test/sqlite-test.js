@@ -1,8 +1,7 @@
 var fs = require('fs');
 var _ = require('underscore');
 
-var tri = require('../lib/tri');
-var Sqlite = tri.SQLite;
+var Sqlite = require('../lib/sqlite');
 var db;
 
 var path = require('path');
