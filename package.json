@@ -1,0 +1,48 @@
+{
+  "name": "tssqlite",
+  "version": "1.0.0",
+  "description": "sqlite3 object relation mapper written in TypeScript",
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanPeter/TypeScriptSQLite.git"
+  },
+  "main": "./lib/sqlite.js",
+  "author": "Jan Schlacher",
+  "keywords": [
+    "trisoft",
+    "sqlite",
+    "sqlite3",
+    "orm",
+    "object",
+    "relation",
+    "mapper"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "sqlite3": "^3.1.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "del": "2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-help": "^1.6.0",
+    "gulp-inject": "3.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-sequence": "0.4.1",
+    "gulp-spawn-mocha": "^2.2.1",
+    "gulp-tsconfig-files": "0.0.2",
+    "gulp-tslint": "^3.1",
+    "gulp-watch": "^4.3.5",
+    "mocha": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}
